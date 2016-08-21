@@ -7,7 +7,7 @@
   </parent>
   <artifactId>taotao-manager-mapper</artifactId>
   
-  <!-- 依赖管理 -->
+    <!-- 依赖管理 -->
 	<dependencies>
 		<dependency>
 			<groupId>com.taotao</groupId>
@@ -55,5 +55,4 @@
             </resource>
         </resources>
 	</build>
-	
 </project>
