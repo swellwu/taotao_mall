@@ -1,11 +1,13 @@
 package com.taotao.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.common.pojo.EUDataGridResult;
+import com.common.utils.IDUtils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.taotao.mapper.TbItemMapper;
@@ -53,6 +55,17 @@ public class ItemServiceImpl implements ItemService{
 		PageInfo<TbItem> pageInfo=new PageInfo<>(list);
 		result.setTotal(pageInfo.getTotal());
 		return result;
+	}
+
+	@Override
+	public void saveItem(TbItem item) {
+		Date date=new Date();
+		Long id=IDUtils.genItemId();
+		item.setId(id);
+		item.setCreated(date);
+		item.setUpdated(date);
+		item.setStatus((byte) 1);
+		itemMapper.insert(item);
 	}
 
 }
